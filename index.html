@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jajanken Showdown | Hunter × Hunter Inspired</title>
+    
+    <meta name="description" content="A Hunter × Hunter inspired Rock Paper Scissors game featuring Nen aura effects, animations, and a stylish UI built with HTML, CSS, and JavaScript.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="countdown-overlay" class="hidden" aria-hidden="true">
+        <h1 id="countdown-text"></h1>
+    </div>
+
+    <main class="game-container" role="main">
+        
+        <header>
+            <h1 class="logo-title">JAJAN<span>KEN</span></h1>
+            <p class="chant-subtitle">"Saisho wa guu... Janken pon!"</p>
+        </header>
+
+        <section class="scoreboard" aria-label="Current Match Score" aria-live="polite" aria-atomic="true">
+            <div class="score-card" id="player-card">
+                <span class="character-name player">Gon (You)</span>
+                <span class="score-value" id="player-score">0</span>
+            </div>
+            <div class="score-divider" aria-hidden="true">VS</div>
+            <div class="score-card" id="opponent-card">
+                <span class="character-name" id="opponent-name">Hisoka</span>
+                <span class="score-value" id="opponent-score">0</span>
+            </div>
+        </section>
+
+        <section class="battle-arena" aria-label="Nen Battle Arena">
+            <div class="arena-slot active-aura" id="player-slot" aria-live="polite">
+                <span class="slot-label player" id="player-slot-label">Nen Concentrated</span>
+                <div class="placeholder-icon" id="player-hand-display" aria-hidden="true">✊</div>
+                <div class="placeholder-text" id="player-status">Charging...</div>
+            </div>
+
+            <div class="vs-badge" aria-hidden="true">X</div>
+
+            <div class="arena-slot" id="opponent-slot" aria-live="polite">
+                <span class="slot-label" id="opponent-slot-label">Enemy State</span>
+                <div class="placeholder-icon" id="opponent-hand-display" aria-hidden="true">?</div>
+                <div class="placeholder-text" id="opponent-status">Waiting...</div>
+            </div>
+        </section>
+
+        <section class="result-panel" id="result-panel" aria-live="assertive" aria-atomic="true">
+            <h2 class="result-message" id="result-message">Await Match Start</h2>
+            <p class="result-details" id="result-details">Focus your Nen aura to unleash a technique.</p>
+        </section>
+
+        <section class="controls-container" aria-label="Game Controls">
+            <h3 class="controls-title">Choose Your Technique</h3>
+            <div class="action-buttons" id="move-buttons">
+                <button type="button" class="btn-jajanken" data-move="rock" aria-label="Unleash Guu: Rock, Enhancer technique">
+                    <span class="btn-text">GUU</span>
+                    <span class="move-type" aria-hidden="true">(Rock / Enhancer)</span>
+                </button>
+                
+                <button type="button" class="btn-jajanken" data-move="scissors" aria-label="Unleash Chi: Scissors, Transmuter technique">
+                    <span class="btn-text">CHI</span>
+                    <span class="move-type" aria-hidden="true">(Scissors / Transmuter)</span>
+                </button>
+                
+                <button type="button" class="btn-jajanken" data-move="paper" aria-label="Unleash Paa: Paper, Emitter technique">
+                    <span class="btn-text">PAA</span>
+                    <span class="move-type" aria-hidden="true">(Paper / Emitter)</span>
+                </button>
+            </div>
+        </section>
+
+        <footer class="game-footer">
+            <button type="button" class="btn-reset" id="btn-reset" aria-label="Reset match scores and current state">
+                Reset Match
+            </button>
+        </footer>
+    </main>
+
+    <script src="script.js"defer></script>
+</body>
+</html>
